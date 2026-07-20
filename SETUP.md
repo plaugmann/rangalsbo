@@ -18,8 +18,10 @@
 
 ### Problem
 The development machine is an EY work laptop that authenticates to GitHub with
-the work account `DK010005267_EYGS`. Pushing to the private hobby repo
+the work account `DK010005267_EYGS`. Pushing to the hobby repo
 `plaugmann/rangalsbo` failed because git used cached work credentials.
+(Same fix applies whether the repo is public or private — it just eliminates
+the work-account credential chain from the picture for this one repo.)
 
 ### Solution (all repo-local, nothing global touched)
 
@@ -143,11 +145,16 @@ Or add the same local alias in any repo.
 
 ## Commits Pushed So Far
 
-| SHA | Author | Message | Method |
-|---|---|---|---|
-| `a0d05c0` | (GitHub initial commit) | Initial commit | GitHub UI |
-| `d81b92e` | plaugmann | Vite React scaffold | API push (one-off script) |
-| `0c78b5c` | plaugmann | Add .gitattributes for consistent line endings | `git api-push` (reusable script) |
+See `git log --oneline` for the current commit history. The first three commits
+were bootstrapped through unusual channels (GitHub UI, then `git api-push` from
+an EY network) and are visible in the log for posterity:
+
+- `a0d05c0` — Initial commit (GitHub UI)
+- `d81b92e` — Vite React scaffold (API push)
+- `0c78b5c` — Add `.gitattributes` (API push, reusable script)
+
+From this point on, regular pushes via `git api-push` (EY network) or `git push`
+(non-EY network) are the expected workflow.
 
 ---
 
