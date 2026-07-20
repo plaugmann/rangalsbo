@@ -51,14 +51,14 @@ Write-Host "------------------------------------"
 Write-Host "  [a] EDITOR_TOKEN (paste the token from Step 1):"
 $sec1 = Read-Host -AsSecureString
 $plain1 = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sec1))
-"`"$plain1`"" | npx wrangler secret put EDITOR_TOKEN
+$plain1 | npx wrangler secret put EDITOR_TOKEN
 Remove-Variable plain1
 if ($LASTEXITCODE -ne 0) { throw "wrangler secret put EDITOR_TOKEN failed" }
 
 Write-Host "  [b] GITHUB_PAT (paste the fine-grained PAT):"
 $sec2 = Read-Host -AsSecureString
 $plain2 = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sec2))
-"`"$plain2`"" | npx wrangler secret put GITHUB_PAT
+$plain2 | npx wrangler secret put GITHUB_PAT
 Remove-Variable plain2
 if ($LASTEXITCODE -ne 0) { throw "wrangler secret put GITHUB_PAT failed" }
 
