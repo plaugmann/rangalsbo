@@ -1,0 +1,45 @@
+.guide {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 28px);
+}
+.intro {
+  text-align: center;
+}
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-hero);
+  line-height: 1.15;
+  margin: 0 0 16px;
+  color: var(--brand-fg);
+  text-wrap: balance;
+}
+.lede {
+  margin: 0 auto;
+  max-width: 52ch;
+  color: var(--brand-muted);
+  text-wrap: pretty;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+  gap: clamp(16px, 2.5vw, 24px);
+}
+.card {
+  background: #F1EAD9;
+  border-radius: 6px;
+  padding: clamp(18px, 2.5vw, 24px);
+}
+.card h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin: 0 0 8px;
+}
+.card p {
+  margin: 0;
+  color: var(--brand-muted);
+  font-size: 0.95rem;
+}
