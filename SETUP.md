@@ -9,8 +9,9 @@
 | Repo | `plaugmann/rangalsbo` on github.com (currently **public**) |
 | Local path | `C:\Users\Soeren.Plaugmann\OneDrive - EY\Documents\GitHub\rangalsbo` |
 | Framework | Vite + React |
-| Deploy | Cloudflare Pages (auto-deploys on push to `main`) |
-| Domains | `rangalsro.com` and `rangalsro.se` (owned, Cloudflare DNS) |
+| Deploy | Cloudflare Workers `rangalsro` (auto-deploys on push to `main`) |
+| Domains | `rangalsro.com` and `rangalsro.se` (registered at Strato.se, DNS now delegated to Cloudflare) |
+| Live URLs | https://rangalsro.com · https://rangalsro.se · https://rangalsro.soerenplaugmann.workers.dev |
 
 ---
 
@@ -164,25 +165,55 @@ From this point on, regular pushes via `git api-push` (EY network) or `git push`
 - `rangalsro.com`
 - `rangalsro.se`
 
-Both are registered and managed in a Cloudflare account (DNS hosted on
-Cloudflare).
+Both are **registered at Strato.se** (the registrar). DNS is now delegated
+to Cloudflare's nameservers; the zone is hosted by Cloudflare. NS pair
+assigned to both zones:
 
-### Cloudflare Pages
-- The project auto-deploys via Cloudflare Pages on every push to `main`.
-- Each `git api-push` triggers a new deploy (the ref update on GitHub
-  is what Cloudflare watches, so API-pushed commits deploy just like
-  regular pushes).
-- A `cloudflare/workers-autoconfig` branch appeared on the remote after
-  the first deploy — this is created automatically by Cloudflare.
+- `howard.ns.cloudflare.com`
+- `mckenzie.ns.cloudflare.com`
 
-### TODO for CI/CD (next chat)
-- Connect the custom domains `rangalsro.com` and `rangalsro.se` to the
-  Cloudflare Pages project.
-- Configure DNS records (CNAME or A records pointing to Pages).
-- Verify domain ownership / SSL provisioning.
-- Set up any build commands or environment variables in Cloudflare Pages
-  dashboard (e.g. `npm run build`, output directory `dist`).
-- Consider making the GitHub repo private (currently public).
+(Strato NS records that were replaced: `docks02.rzone.de` / `shades05.rzone.de`
+for `.com`, `docks20.rzone.de` / `shades16.rzone.de` for `.se`. Migration
+completed 2026-07-20.)
+
+### Cloudflare Workers
+
+Deploy is via **Cloudflare Workers with Assets** (not Pages), with auto-deploy
+on every push to `main`.
+
+- **Worker name**: `rangalsro` (renamed from `rangalsbo` 2026-07-20).
+- **Build command**: `npm run build` → `vite build` → `dist/`.
+- **Deploy command**: `npx wrangler deploy`.
+- **Default Worker URL**: https://rangalsro.soerenplaugmann.workers.dev
+- Each `git api-push` triggers a new deploy. Cloudflare watches the ref
+  update on `main`, so API-pushed commits deploy just like regular pushes.
+- A `cloudflare/workers-autoconfig` branch appears on the remote after the
+  first deploy, created and maintained by Cloudflare. Its `wrangler.jsonc`
+  is the source of truth for deploy config. **Keep it in sync** if you
+  rename the Worker in the dashboard. Currently `name: "rangalsro"` (commit
+  `0cf1166` on that branch).
+
+### Custom domains
+
+Both apex domains are bound to the Worker as production custom domains
+with Cloudflare Universal SSL.
+
+| URL | Status |
+|---|---|
+| https://rangalsro.com | Active, Universal SSL |
+| https://rangalsro.se | Active, Universal SSL |
+
+Adding a custom domain is straightforward once NS delegation is in place:
+Workers → `rangalsro` → production → **Domains** tab → **Add Domain**. DNS
+records are auto-created by Cloudflare.
+
+### Deploy status (as of 2026-07-20)
+
+- ✅ Custom domains `rangalsro.com` and `rangalsro.se` bound to Worker.
+- ✅ Universal SSL active on both.
+- ✅ DNS delegated to Cloudflare NS; old Strato NS removed.
+- ✅ Build & deploy verified: `vite build` succeeds (286 ms / 28 modules).
+- **Open**: make the GitHub repo private (currently public). No deadline.
 
 ---
 
