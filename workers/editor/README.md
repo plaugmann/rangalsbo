@@ -15,15 +15,12 @@ A small Cloudflare Worker that accepts editorial edits from a Claude.ai project 
 ```bash
 cd workers/editor
 npm install
-npx wrangler login
-npx wrangler secret put EDITOR_TOKEN          # paste a long random string
-npx wrangler secret put GITHUB_PAT            # paste a fine-grained GitHub PAT,
-                                              # scoped to plaugmann/rangalsbo only,
-                                              # with contents:write
-npx wrangler deploy
+pwsh .\deploy-editor.ps1
 ```
 
-After `wrangler deploy`, the `routes` block in `wrangler.jsonc` binds the worker to `rangalsro.com/api/*`, so the wife's Claude project POSTs to `https://rangalsro.com/api/tweak`.
+The PowerShell script `deploy-editor.ps1` (sibling of this README) generates a strong random `EDITOR_TOKEN`, walks you through `wrangler login`, prompts for both secrets, deploys, and runs a smoke test against `https://rangalsro.com/api/tweak`. Run with `powershell -ExecutionPolicy Bypass -File .\deploy-editor.ps1` if your session blocks unsigned scripts.
+
+After the script finishes, the `routes` block in `wrangler.jsonc` binds the worker to `rangalsro.com/api/*`, so the wife's Claude project POSTs to `https://rangalsro.com/api/tweak`.
 
 ## Smoke test
 
