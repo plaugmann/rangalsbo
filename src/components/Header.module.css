@@ -1,0 +1,8 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 4vw, 36px) var(--space-page) clamp(12px, 2vw, 20px);
+}
+.logo { width: clamp(140px, 30vw, 236px); }
+.logo svg { width: 100%; height: auto; display: block; }

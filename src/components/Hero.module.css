@@ -1,0 +1,25 @@
+/* Placeholder gradient until real photos arrive.
+   Mobile: text sits at the bottom of the panel. Desktop: same, just taller. */
+.hero {
+  border-radius: 10px;
+  background: linear-gradient(160deg, var(--brand-sage) 0%, var(--brand-surface) 55%, #EBDFC9 100%);
+  min-height: clamp(240px, 40vw, 420px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(24px, 5vw, 48px);
+}
+.title {
+  font-size: var(--text-hero);
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+.sub {
+  margin: 0;
+  max-width: 44ch;
+  color: #46584C; /* 6.4:1 on the gradient's lightest stop */
+  font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.25rem);
+  text-wrap: pretty;
+}
