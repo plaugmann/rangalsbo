@@ -1,1 +1,1 @@
-Tucked by the water in Rangalsnäs, Sweden, Rangalsro is where linen curtains drift in the breeze and the afternoons stretch on. Guests come for the lake and stay for the quiet — a red house, a kitchen that hums, a sauna, and a dock that disappears at sunset.
+Hello.
