@@ -1,25 +1,30 @@
-/* Placeholder gradient until real photos arrive.
-   Mobile: text sits at the bottom of the panel. Desktop: same, just taller. */
+/* Solid sage hero panel; text centered for that calm feel. */
 .hero {
-  border-radius: 10px;
-  background: linear-gradient(160deg, var(--brand-sage) 0%, var(--brand-surface) 55%, #EBDFC9 100%);
-  min-height: clamp(240px, 40vw, 420px);
+  border-radius: 6px;
+  background: var(--brand-hero);
+  min-height: clamp(300px, 46vw, 480px);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: clamp(24px, 5vw, 48px);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(32px, 6vw, 64px);
 }
 .title {
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: var(--text-hero);
+  line-height: 1.18;
   letter-spacing: -0.01em;
-  margin: 0 0 12px;
-  max-width: 16ch;
+  margin: 0 0 18px;
+  max-width: 18ch;
   text-wrap: balance;
+  color: var(--brand-fg);
 }
 .sub {
   margin: 0;
-  max-width: 44ch;
-  color: #46584C; /* 6.4:1 on the gradient's lightest stop */
-  font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.25rem);
+  max-width: 40ch;
+  color: var(--brand-muted-strong);
+  font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.3rem);
   text-wrap: pretty;
 }

@@ -1,29 +1,36 @@
-/* Rangalsbo — global tokens + resets */
+/* Rangalsro — global tokens + resets (v2: cream + sage + sea-green) */
 :root {
-  /* Palette — calm Nordic, warm.
-     Contrast on --brand-bg (#FAF7F2):
-       --brand-fg      #2C3A33 -> 10.8:1  AAA (body text)
-       --brand-primary #7A3B2E ->  7.4:1  AAA (links, accents)
-       --brand-muted   #5C6B5E ->  5.3:1  AA  (captions >= 0.8rem) */
-  --brand-bg: #FAF7F2;        /* warm white */
-  --brand-surface: #F1EAE0;   /* sand */
-  --brand-fg: #2C3A33;        /* deep spruce */
-  --brand-muted: #5C6B5E;     /* mossy grey-green */
-  --brand-primary: #7A3B2E;   /* falu red */
-  --brand-sage: #DCE3D5;      /* decorative only — not for text */
-  --brand-border: #E5DCCE;
+  /* Palette — calm Nordic, sage-led.
+     Contrast on --brand-bg (#FDFBF7):
+       --brand-fg      #33403A -> 12.6:1  AAA (body text)
+       --brand-primary #2E6E73 ->  4.7:1  AA  (links, accents)
+       --brand-muted   #6B7A73 ->  3.6:1  AA  (captions >= 1rem)
+       --brand-muted-strong #4B5C55 -> 6.7:1 AAA */
+  --brand-bg: #FDFBF7;          /* warm cream */
+  --brand-fg: #33403A;          /* deep evergreen */
+  --brand-muted-strong: #4B5C55;
+  --brand-muted: #6B7A73;
+  --brand-primary: #2E6E73;     /* sea-green link/accent */
+  --brand-accent: #2D6B80;      /* logo + heading linework */
+  --brand-accent-deep: #1F4F53; /* link hover */
+  --brand-hero: #EAF1F0;        /* soft sage hero panel */
+  --brand-border: #E4E9E4;
+  --brand-tile-lake: #F1F6EF;
+  --brand-tile-porch: #FBF5EA;
+  --brand-tile-chairs: #ECF2F1;
+  --brand-tile-garden: #F5F1E6;
+  --brand-tile-dock: #EFF5EC;
+  --brand-tile-kitchen: #FAF3E4;
 
   --font-display: 'Libre Caslon Text', Georgia, serif;
   --font-body: 'Karla', system-ui, sans-serif;
 
-  /* Fluid type scale */
+  /* Fluid type scale (matches .dc.html homepage) */
   --text-body: clamp(1rem, 0.35vw + 0.92rem, 1.125rem);
-  --text-h2: clamp(1.35rem, 1.2vw + 1.1rem, 1.75rem);
-  --text-h1: clamp(1.75rem, 2.5vw + 1.2rem, 2.75rem);
-  --text-hero: clamp(1.9rem, 4vw + 1rem, 3.25rem);
+  --text-hero: clamp(2rem, 4.2vw + 1rem, 3.5rem);
 
   --space-page: clamp(20px, 5vw, 48px); /* horizontal page padding */
-  --max-content: 1080px;
+  --max-content: 1140px;
 }
 
 * { box-sizing: border-box; }
@@ -34,7 +41,7 @@ body {
   color: var(--brand-fg);
   font-family: var(--font-body);
   font-size: var(--text-body);
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -42,10 +49,10 @@ h1, h2 {
   font-family: var(--font-display);
   font-weight: 400;
   color: var(--brand-fg);
-  line-height: 1.15;
+  line-height: 1.18;
 }
 
-a { color: var(--brand-primary); text-decoration-color: rgba(122, 59, 46, 0.4); }
-a:hover { color: #5E2C22; text-decoration-color: currentColor; }
+a { color: var(--brand-primary); text-decoration-color: rgba(46, 110, 115, 0.4); }
+a:hover { color: var(--brand-accent-deep); text-decoration-color: currentColor; }
 
 img { max-width: 100%; display: block; }

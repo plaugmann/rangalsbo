@@ -1,10 +1,13 @@
 // Header wordmark. Width is set by the parent (.logo class in Header).
 export default function Logo() {
   return (
-    <svg viewBox="0 0 236 44" role="img" aria-label="Rangalsbo">
-      <path d="M7 36 L22 10 L37 36" fill="none" stroke="var(--brand-fg)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="22" cy="30" r="4.5" fill="var(--brand-primary)" />
-      <text x="52" y="32" fontFamily="var(--font-display)" fontSize="24" letterSpacing="1.5" fill="var(--brand-fg)">Rangalsbo</text>
+    <svg viewBox="0 0 270 54" role="img" aria-label="Rangalsro">
+      <rect x="10" y="6" width="20" height="34" rx="2" fill="none" stroke="var(--brand-accent)" strokeWidth="1.75" />
+      <rect x="14" y="10" width="12" height="10" rx="0.5" fill="none" stroke="var(--brand-accent)" strokeWidth="1.25" />
+      <line x1="20" y1="10" x2="20" y2="20" stroke="var(--brand-accent)" strokeWidth="1" />
+      <line x1="14" y1="15" x2="26" y2="15" stroke="var(--brand-accent)" strokeWidth="1" />
+      <circle cx="16" cy="26" r="1.4" fill="var(--brand-accent)" />
+      <text x="36" y="41" fontFamily="var(--font-display)" fontSize="43" letterSpacing="0.5" fill="var(--brand-fg)">Rangalsro</text>
     </svg>
   )
 }

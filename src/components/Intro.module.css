@@ -1,2 +1,2 @@
-.intro { max-width: 62ch; }
-.intro p { margin: 0; color: #3B4A41; text-wrap: pretty; }
+.intro { max-width: 62ch; margin: 0 auto; text-align: center; }
+.intro p { margin: 0; color: var(--brand-muted-strong); text-wrap: pretty; }

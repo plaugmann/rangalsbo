@@ -1,7 +1,7 @@
 .footer {
-  margin-top: clamp(36px, 6vw, 72px);
+  margin-top: clamp(48px, 8vw, 88px);
   border-top: 1px solid var(--brand-border);
-  padding: clamp(16px, 3vw, 28px) var(--space-page);
+  padding: clamp(18px, 3vw, 28px) var(--space-page);
   display: flex;
   flex-wrap: wrap;
   gap: 8px 24px;

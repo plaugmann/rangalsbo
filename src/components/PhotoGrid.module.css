@@ -1,25 +1,19 @@
-/* 1-up mobile, 2-up tablet, 3-up desktop */
+/* Auto-fill responsive grid: 1-up on very small screens, scales up smoothly. */
 .photoGrid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(10px, 1.5vw, 16px);
-}
-@media (min-width: 768px) {
-  .photoGrid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 1024px) {
-  .photoGrid { grid-template-columns: repeat(3, 1fr); }
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: clamp(14px, 2vw, 22px);
 }
 .photo {
   aspect-ratio: 1 / 1;
-  border-radius: 8px;
+  border-radius: 6px;
   display: flex;
   align-items: flex-end;
   padding: 14px 16px;
 }
 .caption {
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--brand-muted);
 }

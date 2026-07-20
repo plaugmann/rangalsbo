@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(20px, 4vw, 36px) var(--space-page) clamp(12px, 2vw, 20px);
+  padding: clamp(28px, 5vw, 48px) var(--space-page) clamp(16px, 2vw, 24px);
 }
-.logo { width: clamp(140px, 30vw, 236px); }
+.logo { width: clamp(140px, 30vw, 270px); }
 .logo svg { width: 100%; height: auto; display: block; }

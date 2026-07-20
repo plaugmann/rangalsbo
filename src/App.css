@@ -1,10 +1,11 @@
-/* Shared page container (imported once in main.jsx or App.jsx if preferred) */
+/* Shared page container (imported once in App.jsx) */
 .page {
   width: 100%;
-  max-width: var(--max-content);
+  max-width: 1140px;
   margin: 0 auto;
+  box-sizing: border-box;
   padding: 0 var(--space-page);
   display: flex;
   flex-direction: column;
-  gap: clamp(28px, 5vw, 56px);
+  gap: clamp(40px, 7vw, 80px);
 }
