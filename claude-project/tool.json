@@ -1,0 +1,29 @@
+{
+  "name": "tweakRangalsroContent",
+  "description": "Update a content file on Rangalsro.com. Use this whenever the user asks to tweak the homepage intro, the house page lede, or any of the six room paragraphs on The House page. Path must be under src/content/ and end in .md, .json, or .txt. Pass the full file contents in 'content' (not a diff).",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Repo-relative path under src/content/. Examples: 'src/content/home/intro.md', 'src/content/house/rooms.json'.",
+        "pattern": "^src/content/[a-z0-9_/-]+\\.(md|json|txt)$"
+      },
+      "content": {
+        "type": "string",
+        "description": "Full file contents after the edit. For .md use blank-line-separated paragraphs. For .json use double quotes, no trailing commas, no comments."
+      },
+      "message": {
+        "type": "string",
+        "description": "Optional commit message. If omitted, a default is generated."
+      }
+    },
+    "required": ["path", "content"]
+  },
+  "http_method": "POST",
+  "url": "https://rangalsro.com/api/tweak",
+  "headers": {
+    "Authorization": "Bearer ${RANGALSRO_EDITOR_TOKEN}",
+    "Content-Type": "application/json"
+  }
+}

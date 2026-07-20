@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "rangalsro-editor",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-01-01",
+  "routes": [
+    {
+      "pattern": "rangalsro.com/api/*",
+      "zone_name": "rangalsro.com"
+    }
+  ],
+  "vars": {
+    "REPO_OWNER": "plaugmann",
+    "REPO_NAME": "rangalsbo",
+    "BRANCH": "main",
+    "AUTHOR_NAME": "Rangalsro Editor",
+    "AUTHOR_EMAIL": "editor@rangalsro.se"
+  }
+}
