@@ -1,8 +1,29 @@
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(28px, 5vw, 48px) var(--space-page) clamp(16px, 2vw, 24px);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  gap: 16px;
+  padding: clamp(36px, 6vw, 60px) var(--space-page) clamp(16px, 2vw, 24px);
 }
-.logo { width: clamp(140px, 30vw, 270px); }
+.logo { width: clamp(140px, 30vw, 236px); justify-self: center; }
 .logo svg { width: 100%; height: auto; display: block; }
+.bookBtn {
+  justify-self: end;
+  margin-bottom: clamp(7px, 1.5vw, 11px);
+  display: inline-flex;
+  align-items: center;
+  background: var(--brand-cta);
+  color: var(--brand-bg);
+  padding: 0.7em 1.4em;
+  border-radius: 4px;
+  font-size: clamp(0.85rem, 0.3vw + 0.8rem, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.bookBtn:hover {
+  background: var(--brand-cta-deep);
+  color: var(--brand-bg);
+  text-decoration-color: currentColor;
+}

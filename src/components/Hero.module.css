@@ -1,7 +1,9 @@
-/* Solid sage hero panel; text centered for that calm feel. */
+/* Autumn palette hero: deep teal gradient + soft radial highlight, light text. */
 .hero {
+  position: relative;
+  overflow: hidden;
   border-radius: 6px;
-  background: var(--brand-hero);
+  background: linear-gradient(160deg, var(--brand-hero-start) 0%, var(--brand-hero-mid) 45%, var(--brand-hero-end) 100%);
   min-height: clamp(300px, 46vw, 480px);
   display: flex;
   flex-direction: column;
@@ -10,7 +12,17 @@
   text-align: center;
   padding: clamp(32px, 6vw, 64px);
 }
+.heroOverlay {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 45%),
+    radial-gradient(ellipse at 75% 80%, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 50%);
+  filter: blur(18px);
+  pointer-events: none;
+}
 .title {
+  position: relative;
   font-family: var(--font-display);
   font-weight: 400;
   font-size: var(--text-hero);
@@ -19,12 +31,13 @@
   margin: 0 0 18px;
   max-width: 18ch;
   text-wrap: balance;
-  color: var(--brand-fg);
+  color: var(--brand-bg);
 }
 .sub {
+  position: relative;
   margin: 0;
   max-width: 40ch;
-  color: var(--brand-muted-strong);
+  color: #F2EAE0;
   font-size: clamp(1.05rem, 0.6vw + 0.95rem, 1.3rem);
   text-wrap: pretty;
 }

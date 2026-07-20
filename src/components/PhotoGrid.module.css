@@ -1,4 +1,4 @@
-/* Auto-fill responsive grid: 1-up on very small screens, scales up smoothly. */
+/* Auto-fill responsive grid; per-tile tone + caption color set inline. */
 .photoGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
@@ -15,5 +15,4 @@
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--brand-muted);
 }
